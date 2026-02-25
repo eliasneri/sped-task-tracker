@@ -5,21 +5,21 @@ using TaskTracker.Infrastructure.Data;
 
 namespace TaskTracker.Infrastructure.Repositories;
 
-public class TaskItemRepository : ITaskRepository
+public class TaskItemItemRepository : ITaskItemRepository
 {
     private readonly AppDbContext _dbContext;
 
-    public TaskItemRepository(AppDbContext dbContext)
+    public TaskItemItemRepository(AppDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task<List<TaskItemEntity>> GetAllTasks()
+    public async Task<List<TaskItemEntity>> GetAllTasksAsync()
     {
         return await _dbContext.Tasks.ToListAsync();
     }
 
-    public async Task<TaskItemEntity?> GetTaskById(Guid id)
+    public async Task<TaskItemEntity?> GetTaskByIdAsync(Guid id)
     {
         return await _dbContext.Tasks.FindAsync(id);
     }
