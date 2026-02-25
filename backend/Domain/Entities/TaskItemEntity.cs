@@ -1,4 +1,5 @@
 using TaskTracker.Domain.Enums;
+using TaskTracker.Domain.Exceptions;
 
 namespace TaskTracker.Domain.Entities;
 
@@ -25,5 +26,11 @@ public class TaskItemEntity
     {
         Description = description;
         Status = status;
+    }
+
+    public void EnsureCanModify()
+    {
+        if (Status == TaskItemStatusEnum.InProgress)
+            throw new DomainException("Tasks in progress cannot be modified");
     }
 }

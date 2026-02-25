@@ -6,7 +6,7 @@ public interface ITaskItemRepository
 {
     Task<List<TaskItemEntity>> GetAllTasksAsync();
     Task<TaskItemEntity?> GetTaskByIdAsync(Guid id);
-    Task AddTaskAsync(TaskItemEntity task);
-    Task UpdateTaskAsync(TaskItemEntity task);
-    Task DeleteTaskAsync(TaskItemEntity task);
+    Task <TaskItemEntity>AddTaskAsync(TaskItemEntity task);
+    Task<TaskItemEntity> UpdateTaskAsync(TaskItemEntity task);
+    Task <bool>DeleteTaskAsync(TaskItemEntity task);
 }

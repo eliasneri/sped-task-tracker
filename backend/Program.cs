@@ -12,7 +12,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=tasks.db"));
 
-builder.Services.AddScoped<ITaskItemRepository, TaskItemItemRepository>();
+builder.Services.AddScoped<ITaskItemRepository, TaskItemRepository>();
 
 var app = builder.Build();
 
