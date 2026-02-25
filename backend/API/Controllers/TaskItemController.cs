@@ -34,7 +34,7 @@ public class TaskItemController : ControllerBase
     ///  Retorna uma tarefa buscando pelo Id
     ///  </summary>
     /// <param name="id"></param>
-    [HttpGet("findby/{id:guid}")]
+    [HttpGet("findby/{id:guid}", Name = "GetTaskById")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<TaskItemDto>>> GetByIdTaskAsync(Guid id)
@@ -55,7 +55,11 @@ public class TaskItemController : ControllerBase
     public async Task<IActionResult> AddTaskAsync(CreateTaskItemDto dto)
     {
         var created = await _service.AddTaskAsync(dto);
-        return Ok(created);
+        return CreatedAtRoute(
+            "GetTaskById",
+            new { id = created.Id },
+            created
+        );
     }
     
     /// <summary>
