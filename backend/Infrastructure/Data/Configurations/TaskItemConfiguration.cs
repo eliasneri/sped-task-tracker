@@ -17,6 +17,6 @@ public class TaskItemConfiguration : IEntityTypeConfiguration<TaskItemEntity>
             .HasColumnType("TEXT");
 
         builder.Property(t => t.Status)
-            .HasConversion<TaskItemStatusEnum>();
+            .HasConversion<string>();
     }
 }

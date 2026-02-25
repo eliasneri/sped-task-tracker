@@ -8,7 +8,7 @@ using TaskTracker.Application.Utils;
 namespace TaskTracker.API.Controllers;
 
 [ApiController]
-[Route(ParametersGlobals.Prefix + "tasks")]
+[Route(ParametersGlobals.Prefix + "/tasks")]
 public class TaskItemController : ControllerBase
 {
     private readonly ITaskItemService _service;
@@ -21,7 +21,7 @@ public class TaskItemController : ControllerBase
     ///<summary>
     /// Retorna todas as Tarefas
     /// </summary>
-    [HttpGet]
+    [HttpGet("findall")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<List<TaskItemDto>>> GetAllTasksAsync()
     {
@@ -34,7 +34,7 @@ public class TaskItemController : ControllerBase
     ///  Retorna todas uma tarefa buscando pelo Id
     ///  </summary>
     /// <param name="id"></param>
-    [HttpGet("{id}")]
+    [HttpGet("findby/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<TaskItemDto>>> GetByIdTaskAsync(Guid id)
