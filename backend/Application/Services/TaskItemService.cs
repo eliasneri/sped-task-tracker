@@ -52,7 +52,6 @@ public class TaskItemService : TaskItemMapper, ITaskItemService
         if (task is null)
             throw new DomainException($"Task {id} not found!");
         
-        task.EnsureCanModify();
         task.Update(dto.Description, dto.Status);
         
         var updateTask = await repository.UpdateTaskAsync(task);

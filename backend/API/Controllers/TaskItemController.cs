@@ -31,10 +31,10 @@ public class TaskItemController : ControllerBase
     }
 
     /// <summary>
-    ///  Retorna todas uma tarefa buscando pelo Id
+    ///  Retorna uma tarefa buscando pelo Id
     ///  </summary>
     /// <param name="id"></param>
-    [HttpGet("findby/{id}")]
+    [HttpGet("findby/{id:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<TaskItemDto>>> GetByIdTaskAsync(Guid id)
@@ -47,4 +47,36 @@ public class TaskItemController : ControllerBase
         return Ok(task);
     }
     
+    /// <summary>
+    /// Cria uma nova tarefa
+    /// </summary>
+    [HttpPost("new")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    public async Task<IActionResult> AddTaskAsync(CreateTaskItemDto dto)
+    {
+        var created = await _service.AddTaskAsync(dto);
+        return Ok(created);
+    }
+    
+    /// <summary>
+    /// Atualiza uma tarefa
+    /// </summary>
+    [HttpPut("update/{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> UpdateTaskAsync(Guid id, UpdateTaskItemDto dto)
+    {
+        await _service.UpdateTaskAsync(id, dto);
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Remove uma tarefa
+    /// </summary>
+    [HttpDelete("delete/{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> DeleteTaskAsync(Guid id)
+    {
+        await _service.DeleteTaskAsync(id);
+        return NoContent();
+    }
 }
