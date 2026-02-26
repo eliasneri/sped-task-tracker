@@ -1,0 +1,36 @@
+<div class="board">
+
+  <div class="column">
+    <div class="column-header pending">
+      <span>Aguardando</span>
+      <span class="badge">{{ pending.length }}</span>
+    </div>
+    <div class="column-body">
+      <app-task-card *ngFor="let task of pending" [task]="task" />
+      <p class="empty-msg" *ngIf="pending.length === 0">Nenhuma task</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header in-progress">
+      <span>Em Progresso</span>
+      <span class="badge">{{ inProgress.length }}</span>
+    </div>
+    <div class="column-body">
+      <app-task-card *ngFor="let task of inProgress" [task]="task" />
+      <p class="empty-msg" *ngIf="inProgress.length === 0">Nenhuma task</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header completed">
+      <span>Concluída</span>
+      <span class="badge">{{ completed.length }}</span>
+    </div>
+    <div class="column-body">
+      <app-task-card *ngFor="let task of completed" [task]="task" />
+      <p class="empty-msg" *ngIf="completed.length === 0">Nenhuma task</p>
+    </div>
+  </div>
+
+</div>
