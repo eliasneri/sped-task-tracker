@@ -1,0 +1,41 @@
+<app-header />
+
+<div class="layout-body">
+  <nav class="sidebar">
+    <ul class="menu-list">
+      <li>
+        <button class="menu-btn" (click)="openModal('create')">
+          <span class="menu-icon">＋</span> Criar Nova Task
+        </button>
+      </li>
+      <li>
+        <button class="menu-btn" (click)="openModal('search')">
+          <span class="menu-icon">🔍</span> Procurar Task
+        </button>
+      </li>
+      <li>
+        <button class="menu-btn" (click)="openModal('edit')">
+          <span class="menu-icon">✎</span> Editar Task
+        </button>
+      </li>
+      <li>
+        <button class="menu-btn" (click)="openModal('delete')">
+          <span class="menu-icon">✕</span> Excluir Task
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <app-task-board
+      [refreshTrigger]="refreshTrigger"
+      (tasksLoaded)="onTasksLoaded($event)" />
+  </main>
+</div>
+
+<app-footer />
+
+<!-- Modais -->
+@if (activeModal === 'create') {
+  <app-modal-create (close)="closeModal()" (created)="onRefresh()" />
+}
