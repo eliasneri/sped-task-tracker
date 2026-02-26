@@ -1,59 +1,98 @@
-# Frontend
+# SPED Task Tracker — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.5.
+Aplicação de gerenciamento de tarefas desenvolvida em **Angular 21** como parte do desafio técnico SPED.
 
-## Development server
+---
 
-To start a local development server, run:
+## Pré-requisitos
+
+- Node.js 20+
+- Angular CLI 21+
 
 ```bash
+npm install -g @angular/cli
+```
+
+---
+
+## Instalação e execução
+
+```bash
+# Na pasta frontend
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse: `http://localhost:4200`
 
-## Code scaffolding
+> ⚠️ O backend precisa estar rodando em `http://localhost:5219` para a aplicação funcionar.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
+## Estrutura do projeto
+
+```
+src/app/
+├── core/
+│   ├── models/         # Interface Task, enum TaskStatus e DTOs
+│   └── services/       # TaskService — toda comunicação com a API
+├── features/
+│   └── tasks/          # Componentes de task (board, card, modais)
+├── layout/
+│   └── main-layout/    # Layout principal: sidebar + área de conteúdo
+└── shared/
+    └── components/     # Header e Footer reutilizáveis
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Decisões técnicas
 
-## Building
+**Standalone Components (Angular 17+)**
+Projeto utiliza a arquitetura moderna do Angular, sem `NgModule`. Cada componente declara suas próprias dependências via `imports: []`.
 
-To build the project run:
+**TaskService com Injeção de Dependência**
+Toda comunicação com a API está centralizada no `TaskService` (`providedIn: 'root'`). Os componentes nunca fazem chamadas HTTP diretamente — apenas consomem o serviço injetado via construtor.
 
-```bash
-ng build
-```
+**Enum `TaskStatus`**
+O status das tarefas espelha exatamente o enum do backend (`Pending=0`, `InProgress=1`, `Completed=2`), evitando conversões manuais e garantindo consistência.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Funcionalidades
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+| Ação | Como acessar |
+|---|---|
+| Visualizar tasks | Painel principal — 3 colunas (Kanban) |
+| Criar task | Sidebar → "Criar Nova Task" |
+| Editar task | Sidebar → "Editar Task" |
+| Excluir task | Sidebar → "Excluir Task" (com confirmação) |
+| Buscar task | Sidebar → "Procurar Task" (por UUID) |
+| Status da API | Indicador no rodapé (verde/vermelho) |
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## API utilizada
 
-For end-to-end (e2e) testing, run:
+Base URL: `http://localhost:5219/api/v1/tasks`
 
-```bash
-ng e2e
-```
+| Método | Rota | Descrição |
+|---|---|---|
+| `GET` | `/findall` | Lista todas as tasks |
+| `GET` | `/findby/:id` | Busca uma task por UUID |
+| `POST` | `/new` | Cria uma nova task |
+| `PUT` | `/update/:id` | Atualiza descrição e status |
+| `DELETE` | `/delete/:id` | Remove uma task |
+| `GET` | `/hc` | Health check da API |
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Histórico de commits
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+O projeto foi construído com commits atômicos, refletindo cada etapa do desenvolvimento:
+
+---
+
+## Autor
+
+**Elias A. Néri** — [github.com/eliasneri](https://github.com/eliasneri)
