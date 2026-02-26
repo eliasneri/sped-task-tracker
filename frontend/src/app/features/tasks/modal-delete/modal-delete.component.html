@@ -1,0 +1,45 @@
+<div class="modal-overlay" (click)="close.emit()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+
+    <div class="modal-header">
+      <h3>Excluir Task</h3>
+      <button class="btn-close" (click)="close.emit()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="field">
+        <label>Selecione a Task para excluir</label>
+        <select (change)="onSelectTask(($event.target as HTMLSelectElement).value)">
+          <option value="">— escolha uma task —</option>
+          <option *ngFor="let t of tasks" [value]="t.id">{{ t.title }}</option>
+        </select>
+      </div>
+
+      <ng-container *ngIf="selectedTask">
+        <div class="task-preview">
+          <p><strong>Título:</strong> {{ selectedTask.title }}</p>
+          <p><strong>Descrição:</strong> {{ selectedTask.description }}</p>
+          <p><strong>Status:</strong> {{ getStatusLabel(selectedTask) }}</p>
+        </div>
+
+        <div class="confirm-box" *ngIf="confirming">
+          <p class="confirm-text">⚠️ Tem certeza que deseja excluir esta task?</p>
+          <div class="confirm-buttons">
+            <button class="btn-secondary" (click)="confirming = false">Não, cancelar</button>
+            <button class="btn-danger" (click)="confirmDelete()" [disabled]="loading">
+              {{ loading ? 'Excluindo...' : 'Sim, excluir' }}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="modal-footer" *ngIf="!confirming">
+      <button class="btn-secondary" (click)="close.emit()">Cancelar</button>
+      <button class="btn-danger" (click)="requestConfirm()" [disabled]="!selectedTask">
+        Excluir
+      </button>
+    </div>
+
+  </div>
+</div>
