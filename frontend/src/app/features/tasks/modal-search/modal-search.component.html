@@ -1,0 +1,32 @@
+<div class="modal-overlay" (click)="close.emit()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+
+    <div class="modal-header">
+      <h3>Buscar Task por ID</h3>
+      <button class="btn-close" (click)="close.emit()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="field">
+        <label>ID da Task (UUID)</label>
+        <input type="text" [(ngModel)]="searchId"
+               placeholder="ex: 13dfd90b-a306-4d00-bc75-8baf144d0465" />
+      </div>
+      <p class="error-msg" *ngIf="error">{{ error }}</p>
+      <div class="task-preview" *ngIf="result">
+        <p><strong>Título:</strong> {{ result.title }}</p>
+        <p><strong>Descrição:</strong> {{ result.description }}</p>
+        <p><strong>Status:</strong> {{ getStatusLabel(result) }}</p>
+        <p><strong>Criado em:</strong> {{ result.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" (click)="close.emit()">Fechar</button>
+      <button class="btn-primary" (click)="search()" [disabled]="loading">
+        {{ loading ? 'Buscando...' : 'Buscar' }}
+      </button>
+    </div>
+
+  </div>
+</div>
