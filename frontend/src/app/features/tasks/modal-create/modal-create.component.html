@@ -1,0 +1,29 @@
+<div class="modal-overlay" (click)="close.emit()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+
+    <div class="modal-header">
+      <h3>Criar Nova Task</h3>
+      <button class="btn-close" (click)="close.emit()">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="field">
+        <label>Título *</label>
+        <input type="text" [(ngModel)]="title" placeholder="Título da task" />
+      </div>
+      <div class="field">
+        <label>Descrição *</label>
+        <textarea [(ngModel)]="description" placeholder="Descrição da task" rows="4"></textarea>
+      </div>
+      <p class="error-msg" *ngIf="error">{{ error }}</p>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" (click)="close.emit()">Cancelar</button>
+      <button class="btn-primary" (click)="submit()" [disabled]="loading">
+        {{ loading ? 'Salvando...' : 'Criar Task' }}
+      </button>
+    </div>
+
+  </div>
+</div>
