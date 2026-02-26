@@ -31,8 +31,8 @@ sped-task-tracker/
 
 Cada projeto possui seu próprio README com instruções detalhadas de instalação, arquitetura e decisões técnicas:
 
-- 📄 [Documentação do Backend](https://github.com/eliasneri/sped-task-tracker/tree/main/backend/readme.md) — .NET 8, EF Core, Swagger, Docker
-- 📄 [Documentação do Frontend](https://github.com/eliasneri/sped-task-tracker/tree/main/frontend/readme.md) — Angular 21, Standalone Components, TaskService
+- 📄 [Documentação do Backend](https://github.com/eliasneri/sped-task-tracker/tree/main/backend/README.md) — .NET 8, EF Core, Swagger, Docker
+- 📄 [Documentação do Frontend](https://github.com/eliasneri/sped-task-tracker/tree/main/frontend/README.md) — Angular 21, Standalone Components, TaskService
 
 ---
 
