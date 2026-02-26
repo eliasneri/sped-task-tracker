@@ -1,0 +1,12 @@
+<div class="task-card">
+  <div class="card-header" (click)="toggle()">
+    <span class="card-title">{{ task.title }}</span>
+    <span class="card-arrow">{{ isOpen ? '▲' : '▼' }}</span>
+  </div>
+  <div class="card-body" *ngIf="isOpen">
+    <p class="card-description">{{ task.description }}</p>
+    <div class="card-meta">
+      <span class="card-date">{{ formattedDate }}</span>
+    </div>
+  </div>
+</div>
