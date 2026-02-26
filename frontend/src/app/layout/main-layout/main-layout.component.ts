@@ -5,6 +5,9 @@ import { HeaderComponent } from '../../shared/components/header/header.component
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { TaskBoardComponent } from '../../features/tasks/task-board/task-board.component';
 import { ModalCreateComponent } from '../../features/tasks/modal-create/modal-create.component';
+import { ModalEditComponent } from '../../features/tasks/modal-edit/modal-edit.component';
+import { ModalDeleteComponent } from '../../features/tasks/modal-delete/modal-delete.component';
+import { ModalSearchComponent } from '../../features/tasks/modal-search/modal-search.component';
 
 @Component({
   selector: 'app-main-layout',
@@ -14,7 +17,10 @@ import { ModalCreateComponent } from '../../features/tasks/modal-create/modal-cr
     HeaderComponent,
     FooterComponent,
     TaskBoardComponent,
-    ModalCreateComponent
+    ModalCreateComponent,
+    ModalEditComponent,
+    ModalDeleteComponent,
+    ModalSearchComponent
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css'

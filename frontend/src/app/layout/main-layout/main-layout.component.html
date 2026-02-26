@@ -39,3 +39,13 @@
 @if (activeModal === 'create') {
   <app-modal-create (close)="closeModal()" (created)="onRefresh()" />
 }
+@if (activeModal === 'edit') {
+  <app-modal-edit [tasks]="allTasks" (close)="closeModal()" (updated)="onRefresh()" />
+}
+@if (activeModal === 'delete') {
+  <app-modal-delete [tasks]="allTasks" (close)="closeModal()" (deleted)="onRefresh()" />
+}
+@if (activeModal === 'search') {
+  <app-modal-search (close)="closeModal()" />
+}
+
