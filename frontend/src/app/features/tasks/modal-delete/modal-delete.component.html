@@ -9,9 +9,11 @@
     <div class="modal-body">
       <div class="field">
         <label>Selecione a Task para excluir</label>
-        <select (change)="onSelectTask(($event.target as HTMLSelectElement).value)">
+        <select #taskSelect (change)="onSelectTask(taskSelect.value)">
           <option value="">— escolha uma task —</option>
-          <option *ngFor="let t of tasks" [value]="t.id">{{ t.title }}</option>
+          <option *ngFor="let t of tasks" [value]="t.id">
+            {{ t.title }}
+          </option>
         </select>
       </div>
 
