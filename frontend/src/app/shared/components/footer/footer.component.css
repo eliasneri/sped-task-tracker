@@ -1,0 +1,41 @@
+.app-footer {
+  height: 40px;
+  background-color: #1a1d23;
+  border-top: 1px solid #2e3340;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.footer-author a {
+  color: #6b7a99;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.footer-author a:hover { color: #a0aabb; }
+
+.api-status {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.online { color: #4caf82; }
+.online .status-dot { background-color: #4caf82; }
+.offline { color: #e05c5c; }
+.offline .status-dot { background-color: #e05c5c; }

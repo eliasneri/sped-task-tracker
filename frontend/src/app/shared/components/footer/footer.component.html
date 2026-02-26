@@ -1,0 +1,9 @@
+<footer class="app-footer">
+  <span class="footer-author">
+    <a href="https://github.com/eliasneri" target="_blank">Elias A. Néri</a>
+  </span>
+  <span class="api-status" [class.online]="apiOnline" [class.offline]="!apiOnline">
+    <span class="status-dot"></span>
+    {{ apiOnline ? 'API Online' : 'API Offline' }}
+  </span>
+</footer>
