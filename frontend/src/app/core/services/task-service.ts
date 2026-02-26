@@ -8,7 +8,7 @@ import {CreateTaskDto, Task, UpdateTaskDto} from '../models/task.model';
 })
 
 export class TaskService {
-    private baseUrl: string = 'http://localhost:5219/api/v1/tasks';
+    private baseUrl: string = 'http://localhost:8080/api/v1/tasks';
 
     constructor(private http: HttpClient) {}
 
@@ -34,6 +34,6 @@ export class TaskService {
   }
 
   healthCheck(): Observable<string> {
-    return this.http.get('http://localhost:5219/hc', { responseType: 'text' });
+    return this.http.get('http://localhost:8080/hc', { responseType: 'text' });
   }
 }

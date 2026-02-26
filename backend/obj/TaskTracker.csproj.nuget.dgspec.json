@@ -10,11 +10,11 @@
         "projectUniqueName": "/home/eliasneri/Documentos/mydev/sped-task-tracker/backend/TaskTracker.csproj",
         "projectName": "TaskTracker",
         "projectPath": "/home/eliasneri/Documentos/mydev/sped-task-tracker/backend/TaskTracker.csproj",
-        "packagesPath": "/home/eliasneri/.nuget/packages/",
+        "packagesPath": "/root/.nuget/packages/",
         "outputPath": "/home/eliasneri/Documentos/mydev/sped-task-tracker/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/eliasneri/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

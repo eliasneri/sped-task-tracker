@@ -5,6 +5,7 @@
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/bin/Debug/net8.0/TaskTracker.runtimeconfig.json
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/bin/Debug/net8.0/TaskTracker.dll
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/bin/Debug/net8.0/TaskTracker.pdb
+/home/eliasneri/Documentos/mydev/sped-task-tracker/backend/bin/Debug/net8.0/FluentValidation.dll
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/bin/Debug/net8.0/Humanizer.dll
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
@@ -132,4 +133,3 @@
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/obj/Debug/net8.0/TaskTracker.pdb
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/obj/Debug/net8.0/TaskTracker.genruntimeconfig.cache
 /home/eliasneri/Documentos/mydev/sped-task-tracker/backend/obj/Debug/net8.0/ref/TaskTracker.dll
-/home/eliasneri/Documentos/mydev/sped-task-tracker/backend/bin/Debug/net8.0/FluentValidation.dll
